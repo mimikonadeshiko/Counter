@@ -6,16 +6,19 @@
     <style>
         body {
             font-family: sans-serif;
+            background-color: Black;
         }
         h1 {
             font-size: 72px;
             text-align: center;
             margin-top: 0px;
+            color: white;
         }
         h2 {
             font-size: 64px;
             text-align: center;
             margin-top: 0px;
+            color: white;
         }
         .counter {
             display: flex;
@@ -29,30 +32,30 @@
             margin: 0 10px;
             border: none;
             border-radius: 5px;
-            background-color: black;
-            color: white;
+            background-color: white;
+            color: black;
             cursor: pointer;
         }
         .counter button:hover {
-            background-color: black;
+            background-color: white;
         }
     </style>
 </head>
 <body>
     <h1>Counter App</h1>
-    <h2>右</h2>
-    <div class="counter">
-        <button id="decreaseLeft">-</button>
-        <h1 id="countLeft">0</h1>
-        <button id="increaseLeft">+</button>
-        <button id="resetLeft">Reset</button>
-    </div>
-    <h2>左</h2>
+    <h2>Right Counter</h2>
     <div class="counter">
         <button id="decreaseRight">-</button>
         <h1 id="countRight">0</h1>
         <button id="increaseRight">+</button>
         <button id="resetRight">Reset</button>
+    </div>
+    <h2>Left Counter</h2>
+    <div class="counter">
+        <button id="decreaseLeft">-</button>
+        <h1 id="countLeft">0</h1>
+        <button id="increaseLeft">+</button>
+        <button id="resetLeft">Reset</button>
     </div>
 
     <script>
@@ -103,6 +106,19 @@
             countRight = 0;
             countRightEl.textContent = countRight;
         });
+        document.addEventListener('keydown', (event) => {
+        if (event.code === 'ArrowRight') {
+            countRight++;
+            countRightEl.textContent = countRight;
+        } else if (event.code === 'ArrowLeft') {
+            countRight--;
+            countRightEl.textContent = countRight;
+        } else if (event.code === 'ArrowUp') {
+            countLeft++;
+            countLeftEl.textContent = countLeft;
+        } else if (event.code === 'ArrowDown') {
+            countLeft--;
+            countLeftEl.textContent = countLeft;
+        }
+});
     </script>
-</body>
-</html>

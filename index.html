@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Counter App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        h1 {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-top: 0px;
+        }
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .counter button {
+            font-size: 24px;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        .counter button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>Counter App</h1>
+    <h2>右</h2>
+    <div class="counter">
+        <button id="decreaseLeft">-</button>
+        <h2 id="countLeft">0</h2>
+        <button id="increaseLeft">+</button>
+        <button id="resetLeft">Reset</button>
+    </div>
+    <h2>左</h2>
+    <div class="counter">
+        <button id="decreaseRight">-</button>
+        <h2 id="countRight">0</h2>
+        <button id="increaseRight">+</button>
+        <button id="resetRight">Reset</button>
+    </div>
+
+    <script>
+        // 左側のカウンター
+        const countLeftEl = document.getElementById('countLeft');
+        const increaseLeftBtn = document.getElementById('increaseLeft');
+        const decreaseLeftBtn = document.getElementById('decreaseLeft');
+        const resetLeftBtn = document.getElementById('resetLeft');
+
+        let countLeft = 0;
+        countLeftEl.textContent = countLeft;
+
+        increaseLeftBtn.addEventListener('click', () => {
+            countLeft++;
+            countLeftEl.textContent = countLeft;
+        });
+
+        decreaseLeftBtn.addEventListener('click', () => {
+            countLeft--;
+            countLeftEl.textContent = countLeft;
+        });
+
+        resetLeftBtn.addEventListener('click', () => {
+            countLeft = 0;
+            countLeftEl.textContent = countLeft;
+        });
+
+        // 右側のカウンター
+        const countRightEl = document.getElementById('countRight');
+        const increaseRightBtn = document.getElementById('increaseRight');
+        const decreaseRightBtn = document.getElementById('decreaseRight');
+        const resetRightBtn = document.getElementById('resetRight');
+
+        let countRight = 0;
+        countRightEl.textContent = countRight;
+
+        increaseRightBtn.addEventListener('click', () => {
+            countRight++;
+            countRightEl.textContent = countRight;
+        });
+
+        decreaseRightBtn.addEventListener('click', () => {
+            countRight--;
+            countRightEl.textContent = countRight;
+        });
+
+        resetRightBtn.addEventListener('click', () => {
+            countRight = 0;
+            countRightEl.textContent = countRight;
+        });
+    </script>
+</body>
+</html>
